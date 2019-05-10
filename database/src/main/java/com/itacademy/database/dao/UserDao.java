@@ -7,10 +7,10 @@ public class UserDao {
     private static final UserDao INSTANCE = new UserDao();
 
     public User getDefaultUser(){
-        User user = new User();
-        user.setId(1L);
-        user.setName("Serega");
-        return user;
+        return User.builder()
+                .id(1L)
+                .name("Serega")
+                .build();
     }
 
     public static UserDao getInstance() {

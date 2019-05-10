@@ -14,7 +14,7 @@ import java.io.IOException;
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
 
-    private final UserService userService = UserService.getInsance();
+    public final UserService userService = UserService.getInsance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
