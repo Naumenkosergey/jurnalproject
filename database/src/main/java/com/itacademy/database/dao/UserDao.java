@@ -6,7 +6,7 @@ public class UserDao {
 
     private static final UserDao INSTANCE = new UserDao();
 
-    public User getDefaultUser(){
+    public User getDefaultUser() {
         return User.builder()
                 .id(1L)
                 .name("Serega")

@@ -14,15 +14,15 @@ import java.io.IOException;
 @WebServlet("/user")
 public class UserServlet extends HttpServlet {
 
-    public final UserService userService = UserService.getInsance();
+    private final UserService userService = UserService.getInsance();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User defoultUser = userService.getDefaultUser();
-        req.setAttribute("user",defoultUser);
+        req.setAttribute("user", defoultUser);
 
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/jsp/user.jsp")
-                .forward(req,resp);
+                .forward(req, resp);
     }
 }

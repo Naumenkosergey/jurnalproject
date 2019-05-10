@@ -5,14 +5,15 @@ import com.itacademy.database.entity.User;
 
 public class UserService {
 
-    private  static final UserService INSANCE = new UserService();
+    private static final UserService INSANCE = new UserService();
     private final UserDao userDao = UserDao.getInstance();
 
 
     public static UserService getInsance() {
         return INSANCE;
     }
-    public User getDefaultUser(){
+
+    public User getDefaultUser() {
         return userDao.getDefaultUser();
     }
 }
