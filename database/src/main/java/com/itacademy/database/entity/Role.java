@@ -16,12 +16,12 @@ import javax.persistence.Table;
 @EqualsAndHashCode(of = "role")
 @NoArgsConstructor
 @Entity
-@Table(name = "roles",schema = "jurnalproject_schema")
-public class Roles {
+@Table(name = "role",schema = "jurnalproject_schema")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_role;
+    private Long id;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "name")
+    private String fole;
 }
