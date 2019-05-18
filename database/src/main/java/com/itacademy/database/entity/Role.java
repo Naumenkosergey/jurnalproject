@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Data
-@EqualsAndHashCode(of = "role")
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @Entity
 @Table(name = "role",schema = "jurnalproject_schema")

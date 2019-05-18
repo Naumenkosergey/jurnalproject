@@ -1,6 +1,5 @@
 package com.itacademy.database.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -20,14 +19,11 @@ import javax.persistence.Table;
 @Builder
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "user", schema = "jurnalproject_schema")
-public class User {
+@Table(name = "status", schema = "jurnalproject_schema")
+public class Status {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "login")
-    private String login;
-    @Column(name = "password")
-    private String password;
-
+    private Long id;
+    @Column(name = "name")
+    private String name;
 }

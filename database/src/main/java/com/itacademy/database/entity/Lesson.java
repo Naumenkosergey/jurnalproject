@@ -1,6 +1,5 @@
 package com.itacademy.database.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.time.Instant;
 
 @Data
 @NoArgsConstructor
@@ -20,14 +20,16 @@ import javax.persistence.Table;
 @Builder
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "user", schema = "jurnalproject_schema")
-public class User {
+@Table(name="lesson",schema = "jurnalproject_schema")
+public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "login")
-    private String login;
-    @Column(name = "password")
-    private String password;
+    private Long id;
+    @Column(name = "date")
+    private Instant date;
+    @Column(name = "topick")
+    private String topick;
+    @Column(name = "homework")
+    private String homework;
 
 }

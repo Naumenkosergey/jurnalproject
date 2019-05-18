@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/jurnalproject</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/hero</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="connection.username">postgres</property>
@@ -14,6 +14,17 @@
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->
 
+        <mapping class="com.itacademy.database.entity.Hero"/>
+        <mapping class="com.itacademy.database.entity.Employee"/>
         <mapping class="com.itacademy.database.entity.Role"/>
+        <mapping class="com.itacademy.database.entity.Faculty"/>
+        <mapping class="com.itacademy.database.entity.Flow"/>
+        <mapping class="com.itacademy.database.entity.Groupa"/>
+        <mapping class="com.itacademy.database.entity.Lesson"/>
+        <mapping class="com.itacademy.database.entity.Mark"/>
+        <mapping class="com.itacademy.database.entity.Office"/>
+        <mapping class="com.itacademy.database.entity.Student"/>
+        <mapping class="com.itacademy.database.entity.Subject"/>
+        <mapping class="com.itacademy.database.entity.User"/>
     </session-factory>
 </hibernate-configuration>
