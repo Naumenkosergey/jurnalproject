@@ -9,7 +9,8 @@ public class UserDao {
     public User getDefaultUser() {
         return User.builder()
                 .id(1L)
-                .name("Serega")
+                .login("Serega")
+                .password("serega")
                 .build();
     }
 

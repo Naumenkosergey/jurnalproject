@@ -11,6 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Data
@@ -28,5 +31,10 @@ public class Mark {
     private Integer value;
     @Column(name = "experiance")
     private Integer experiance;
-
+    @OneToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
+    @ManyToOne
+    @JoinColumn(name = "student_id")
+    private Student student;
 }

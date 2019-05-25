@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:postgresql://localhost:5432/hero</property>
+        <property name="connection.url">jdbc:postgresql://localhost:5432/jurnalproject</property>
         <property name="connection.driver_class">org.postgresql.Driver</property>
         <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
         <property name="connection.username">postgres</property>
@@ -24,6 +24,7 @@
         <mapping class="com.itacademy.database.entity.Mark"/>
         <mapping class="com.itacademy.database.entity.Office"/>
         <mapping class="com.itacademy.database.entity.Student"/>
+        <mapping class="com.itacademy.database.entity.Status"/>
         <mapping class="com.itacademy.database.entity.Subject"/>
         <mapping class="com.itacademy.database.entity.User"/>
     </session-factory>

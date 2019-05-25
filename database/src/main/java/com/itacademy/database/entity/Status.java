@@ -11,6 +11,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Data
@@ -26,4 +27,8 @@ public class Status {
     private Long id;
     @Column(name = "name")
     private String name;
+    @OneToOne(mappedBy = "status")
+    private Student student;
 }
+
+
