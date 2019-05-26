@@ -16,10 +16,12 @@ public class UserServlet extends HttpServlet {
 
     private final UserService userService = UserService.getInsance();
 
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        User defoultUser = userService.getDefaultUser();
-        req.setAttribute("user", defoultUser);
+
+        User userAll = (User) userService.getUserAll();
+        req.setAttribute("user", userAll);
 
         getServletContext()
                 .getRequestDispatcher("/WEB-INF/jsp/user.jsp")

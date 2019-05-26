@@ -12,7 +12,7 @@
 </head>
 <body>
     <p>Страница JSP</p>
-    <p>Hello:${requestScope.user.name}</p>
+    <p>Hello:${requestScope.user}</p>
 
 </body>
 </html>
