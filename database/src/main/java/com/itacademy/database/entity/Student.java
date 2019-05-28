@@ -1,12 +1,10 @@
 package com.itacademy.database.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,35 +17,35 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = "role")
 @Entity
-@Table(name = "user", schema = "jurnalproject_schema")
-public class User {
+@Table(name = "student", schema = "jurnalproject_schema")
+public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "login")
-    private String login;
-    @Column(name = "password")
-    private String password;
-
+    private Long id;
+    @Column(name = "sername")
+    private String sername;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "patronymic")
+    private String patronymich;
+    @OneToOne
+    @JoinColumn(name = "user_id")
+    private User user;
     @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
-
-    @OneToOne(mappedBy = "user")
-    private Employee employee;
-
-    @OneToOne(mappedBy = "user")
-    private Student student;
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Employee> employees = new HashSet<>();
+    @JoinColumn(name = "group_id")
+    private Groupa groupa;
+    @OneToOne
+    @JoinColumn(name = "status_id")
+    private Status status;
+    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    private List<Mark> marks = new ArrayList<>();
 }

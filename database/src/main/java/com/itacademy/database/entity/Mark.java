@@ -1,53 +1,40 @@
 package com.itacademy.database.entity;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = "role")
 @Entity
-@Table(name = "user", schema = "jurnalproject_schema")
-public class User {
+@Table(name = "mark", schema = "jurnalproject_schema")
+public class Mark {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    @Column(name = "login")
-    private String login;
-    @Column(name = "password")
-    private String password;
-
+    private Long id;
+    @Column(name = "value")
+    private Integer value;
+    @Column(name = "experiance")
+    private Integer experiance;
+    @OneToOne
+    @JoinColumn(name = "lesson_id")
+    private Lesson lesson;
     @ManyToOne
-    @JoinColumn(name = "role_id")
-    private Role role;
-
-    @OneToOne(mappedBy = "user")
-    private Employee employee;
-
-    @OneToOne(mappedBy = "user")
+    @JoinColumn(name = "student_id")
     private Student student;
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Employee> employees = new HashSet<>();
 }
