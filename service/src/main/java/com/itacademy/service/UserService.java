@@ -1,20 +1,37 @@
 package com.itacademy.service;
 
-import com.itacademy.database.dao.UserDao;
+import com.itacademy.database.dao.IDao;
+import com.itacademy.database.dao.UserDaoImpl;
 import com.itacademy.database.entity.User;
 
 import java.util.List;
 
-public class UserService {
+public class UserService implements IService<User> {
 
-    private static final UserService INSANCE = new UserService();
-    private final UserDao userDao = UserDao.getInstance();
+    private IDao<User> userDao = new UserDaoImpl();
 
-    public static UserService getInsance() {
-        return INSANCE;
+    @Override
+    public User findUser(int id) {
+        return null;
     }
 
-    public List<User> getUserAll() {
+    @Override
+    public void saveUser(User user) {
+
+    }
+
+    @Override
+    public void deleteUser(User user) {
+
+    }
+
+    @Override
+    public void updateUser(User user) {
+
+    }
+
+    @Override
+    public List<User> findAllUsers() {
         return userDao.findAll();
     }
 }

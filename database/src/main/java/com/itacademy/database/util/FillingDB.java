@@ -172,8 +172,8 @@ public class FillingDB {
                 Office mogilevskaya = officeSave(session, "Могилевская");
                 Office loginskya = officeSave(session, "Ложинская");
                 Office derjinskogo = officeSave(session, "Держинского");
-                Office Pobediteley = officeSave(session, "Победителей");
-                Office Logoika = officeSave(session, "Логойский тракт");
+                Office pobediteley = officeSave(session, "Победителей");
+                Office logoika = officeSave(session, "Логойский тракт");
 
 
                 Flow flow1 = flowSave(session, "16/1");

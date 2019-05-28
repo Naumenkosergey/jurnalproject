@@ -27,15 +27,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = "role")
+@ToString(exclude = "employees")
 @Entity
 @Table(name = "user", schema = "jurnalproject_schema")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     @Column(name = "login")
     private String login;
+
     @Column(name = "password")
     private String password;
 
@@ -48,6 +50,7 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private Student student;
+
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private Set<Employee> employees = new HashSet<>();
 }

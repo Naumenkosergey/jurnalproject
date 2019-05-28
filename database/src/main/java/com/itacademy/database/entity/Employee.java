@@ -28,7 +28,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = "user")
+@ToString(exclude = {"user"})
 @Entity
 @Table(name = "employee", schema = "jurnalproject_schema")
 public class Employee {
@@ -41,6 +41,7 @@ public class Employee {
     private String surname;
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
+    //@PrimaryKeyJoinColumn
     private User user;
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     private List<Lesson> lessons = new ArrayList<>();

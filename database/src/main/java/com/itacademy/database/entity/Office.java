@@ -34,14 +34,14 @@ public class Office {
     private Long id;
     @Column(name = "name")
     private String name;
-//    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
+    //    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
 //    private Set<Faculty> faculties = new HashSet<>();
-    @OneToMany(mappedBy = "office",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
     private List<Lesson> lessons = new ArrayList<>();
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "office_employee",schema = "jurnalproject_schema",
+    @JoinTable(name = "office_employee", schema = "jurnalproject_schema",
             joinColumns = @JoinColumn(name = "office_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id")
     )
