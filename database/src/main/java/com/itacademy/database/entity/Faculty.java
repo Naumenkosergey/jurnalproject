@@ -5,13 +5,11 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -24,12 +22,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
+@ToString(exclude = {"subjects, groupas"})
+
 @Entity
 @Table(name = "faculty", schema = "jurnalproject_schema")
-public class Faculty {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Faculty extends BaseEntity<Long> {
+
     @Column(name = "name")
     private String name;
     //    @ManyToOne
@@ -42,6 +40,7 @@ public class Faculty {
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
     private List<Subject> subjects = new ArrayList<>();
+
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(name = "faculty_groupa", schema = "jurnalproject_schema",

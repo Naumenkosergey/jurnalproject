@@ -11,9 +11,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -28,21 +25,22 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @EqualsAndHashCode(of = "id")
-@ToString(exclude = {"user"})
+@ToString(exclude = {"user,lessons, offices"})
 @Entity
 @Table(name = "employee", schema = "jurnalproject_schema")
-public class Employee {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Employee extends BaseEntity<Long> {
+
     @Column(name = "name")
     private String name;
+
     @Column(name = "surname")
     private String surname;
+
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
     //@PrimaryKeyJoinColumn
     private User user;
+
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
     private List<Lesson> lessons = new ArrayList<>();
 

@@ -10,24 +10,27 @@
 <html>
 <head>
     <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
-<table>
+<table border="1">
     <tr>
-        <td/>id</td>
+        <td>id</td>
         <td>login</td>
         <td>password</td>
         <td>role</td>
     </tr>
     <c:forEach items="${users}" var="list">
-        <td>${list.id}</td>
-        <td>${list.login}</td>
-        <td>${list.password}</td>
-        <td>${list.role}</td>
+        <tr>
+            <td>${list.id}</td>
+            <td>${list.login}</td>
+            <td>${list.password}</td>
+            <td>${list.role}</td>
+        </tr>
     </c:forEach>
 </table>
-    <%--<p>Страница JSP</p>--%>
-    <p>Hello:${requestScope.user}</p>
+<%--<p>Страница JSP</p>--%>
+<p>Hello:${requestScope.user}</p>
 
 </body>
 </html>

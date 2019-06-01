@@ -1,14 +1,17 @@
 package com.itacademy.service;
 
-import com.itacademy.database.dao.IDao;
-import com.itacademy.database.dao.UserDaoImpl;
+import com.itacademy.database.dao.UserDao;
 import com.itacademy.database.entity.User;
+import com.itacademy.database.util.HibernateSessionFactoryUtil;
+import org.hibernate.SessionFactory;
 
 import java.util.List;
 
 public class UserService implements IService<User> {
 
-    private IDao<User> userDao = new UserDaoImpl();
+    private static SessionFactory factory = HibernateSessionFactoryUtil.getSessionFactory();
+
+    private final UserDao userDao =UserDao.getInstance();
 
     @Override
     public User findUser(int id) {

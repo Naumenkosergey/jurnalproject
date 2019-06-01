@@ -12,13 +12,21 @@ import com.itacademy.database.entity.Status;
 import com.itacademy.database.entity.Student;
 import com.itacademy.database.entity.Subject;
 import com.itacademy.database.entity.User;
+import lombok.NoArgsConstructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 
 import java.time.Instant;
 
+@NoArgsConstructor
 public class FillingDB {
+
+    private static FillingDB INSTANCE = new FillingDB();
+
+    public static FillingDB getInstance() {
+        return INSTANCE;
+    }
+
     private static Role roleSave(Session session, String name) {
         Role role = new Role().builder()
                 .name(name)
@@ -139,99 +147,103 @@ public class FillingDB {
         return mark;
     }
 
-    public static void main(String[] args) {
-        try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory()) {
-            try (Session session = sessionFactory.openSession()) {
-                session.beginTransaction();
+//    public static void main(String[] args) {
+//        importDdataForTest();
+//    }
 
-                Role admin = roleSave(session, "Админ");
-                Role student = roleSave(session, "Студент");
-                Role teacher = roleSave(session, "Преподаватель");
-                Role manager = roleSave(session, "Менеджер");
+    public void importDdataForTest(SessionFactory sessionFactory) {
+//        try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory()) {
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
 
-                User user1 = userSave(session, "admin", "admin", admin);
-                User user2 = userSave(session, "student1", "student1", teacher);
-                User user3 = userSave(session, "student2", "student2", teacher);
-                User user4 = userSave(session, "manager", "manager", manager);
-                User user5 = userSave(session, "teacher", "admin", admin);
-                User user6 = userSave(session, "teacher", "teacher", teacher);
+            Role admin = roleSave(session, "Админ");
+            Role student = roleSave(session, "Студент");
+            Role teacher = roleSave(session, "Преподаватель");
+            Role manager = roleSave(session, "Менеджер");
 
-                Employee employee1 = employeeSave(session, "Сергей", "Науменко", user6);
-                Employee employee2 = employeeSave(session, "Александра", "Диковицкая", user4);
-                Employee employee3 = employeeSave(session, "дима", "Коледа", user3);
-                Employee employee4 = employeeSave(session, "Саша", "Торган", user2);
-                Employee employee5 = employeeSave(session, "Андрей", "Акинфин", user1);
+            User user1 = userSave(session, "admin", "admin", admin);
+            User user2 = userSave(session, "student1", "student1", teacher);
+            User user3 = userSave(session, "student2", "student2", teacher);
+            User user4 = userSave(session, "manager", "manager", manager);
+            User user5 = userSave(session, "teacher", "admin", admin);
+            User user6 = userSave(session, "teacher", "teacher", teacher);
 
-                Status status1 = statusSave(session, "Ходит");
-                Status status2 = statusSave(session, "Академ");
-                Status status3 = statusSave(session, "Расторжение");
-                Status status4 = statusSave(session, "Отчислен");
-                Status status5 = statusSave(session, "Выпустился");
+            Employee employee1 = employeeSave(session, "Сергей", "Науменко", user6);
+            Employee employee2 = employeeSave(session, "Александра", "Диковицкая", user4);
+            Employee employee3 = employeeSave(session, "дима", "Коледа", user3);
+            Employee employee4 = employeeSave(session, "Саша", "Торган", user2);
+            Employee employee5 = employeeSave(session, "Андрей", "Акинфин", user1);
 
-                Office priticskogo = officeSave(session, "Притыцкого");
-                Office mogilevskaya = officeSave(session, "Могилевская");
-                Office loginskya = officeSave(session, "Ложинская");
-                Office derjinskogo = officeSave(session, "Держинского");
-                Office pobediteley = officeSave(session, "Победителей");
-                Office logoika = officeSave(session, "Логойский тракт");
+            Status status1 = statusSave(session, "Ходит");
+            Status status2 = statusSave(session, "Академ");
+            Status status3 = statusSave(session, "Расторжение");
+            Status status4 = statusSave(session, "Отчислен");
+            Status status5 = statusSave(session, "Выпустился");
+
+            Office priticskogo = officeSave(session, "Притыцкого");
+            Office mogilevskaya = officeSave(session, "Могилевская");
+            Office loginskya = officeSave(session, "Ложинская");
+            Office derjinskogo = officeSave(session, "Держинского");
+            Office pobediteley = officeSave(session, "Победителей");
+            Office logoika = officeSave(session, "Логойский тракт");
 
 
-                Flow flow1 = flowSave(session, "16/1");
-                Flow flow2 = flowSave(session, "16/2");
-                Flow flow3 = flowSave(session, "17/1");
-                Flow flow4 = flowSave(session, "17/2");
-                Flow flow5 = flowSave(session, "18/1");
-                Flow flow6 = flowSave(session, "18/2");
-                Flow flow7 = flowSave(session, "19/1");
+            Flow flow1 = flowSave(session, "16/1");
+            Flow flow2 = flowSave(session, "16/2");
+            Flow flow3 = flowSave(session, "17/1");
+            Flow flow4 = flowSave(session, "17/2");
+            Flow flow5 = flowSave(session, "18/1");
+            Flow flow6 = flowSave(session, "18/2");
+            Flow flow7 = flowSave(session, "19/1");
 
-                Faculty kids = facultySave(session, "kids");
-                Faculty teen = facultySave(session, "teen");
-                Faculty jun = facultySave(session, "jun");
+            Faculty kids = facultySave(session, "kids");
+            Faculty teen = facultySave(session, "teen");
+            Faculty jun = facultySave(session, "jun");
 
-                Groupa groupa1 = groupaSave(session, 1, 1, flow1);
-                Groupa groupa2 = groupaSave(session, 2, 1, flow2);
-                Groupa groupa3 = groupaSave(session, 3, 2, flow3);
-                Groupa groupa4 = groupaSave(session, 4, 1, flow3);
-                Groupa groupa5 = groupaSave(session, 5, 1, flow5);
-                Groupa groupa6 = groupaSave(session, 6, 4, flow4);
-                Groupa groupa7 = groupaSave(session, 5, 1, flow6);
-                Groupa groupa8 = groupaSave(session, 4, 3, flow7);
+            Groupa groupa1 = groupaSave(session, 1, 1, flow1);
+            Groupa groupa2 = groupaSave(session, 2, 1, flow2);
+            Groupa groupa3 = groupaSave(session, 3, 2, flow3);
+            Groupa groupa4 = groupaSave(session, 4, 1, flow3);
+            Groupa groupa5 = groupaSave(session, 5, 1, flow5);
+            Groupa groupa6 = groupaSave(session, 6, 4, flow4);
+            Groupa groupa7 = groupaSave(session, 5, 1, flow6);
+            Groupa groupa8 = groupaSave(session, 4, 3, flow7);
 
-                Subject pythonT = subjectSave(session, "python", 4, flow4, teen);
-                Subject netJ = subjectSave(session, ".Net", 4, flow4, jun);
-                Subject wedo = subjectSave(session, "wedo", 1, flow7, kids);
-                Subject lrm = subjectSave(session, "LRM", 3, flow2, teen);
-                Subject pc = subjectSave(session, "PC", 1, flow2, jun);
+            Subject pythonT = subjectSave(session, "python", 4, flow4, teen);
+            Subject netJ = subjectSave(session, ".Net", 4, flow4, jun);
+            Subject wedo = subjectSave(session, "wedo", 1, flow7, kids);
+            Subject lrm = subjectSave(session, "LRM", 3, flow2, teen);
+            Subject pc = subjectSave(session, "PC", 1, flow2, jun);
 
-                Student studentSaha = studentSave(session, "Длробязко", "Саша", "Батьковна", user2, groupa1, status1);
-                Student studentMatvey = studentSave(session, "Алесин", "Матвей", "Батькович", user3, groupa2, status5);
+            Student studentSaha = studentSave(session, "Длробязко", "Саша", "Батьковна", user2, groupa1, status1);
+            Student studentMatvey = studentSave(session, "Алесин", "Матвей", "Батькович", user3, groupa2, status5);
 
-                Lesson lesson1 = lessonSave(session, Instant.now(), "тема1", "ДЗ1", priticskogo, employee1);
-                Lesson lesson2 = lessonSave(session, Instant.now(), "тема2", "ДЗ2", priticskogo, employee1);
-                Lesson lesson3 = lessonSave(session, Instant.now(), "тема3", "ДЗ3", priticskogo, employee2);
+            Lesson lesson1 = lessonSave(session, Instant.now(), "тема1", "ДЗ1", priticskogo, employee1);
+            Lesson lesson2 = lessonSave(session, Instant.now(), "тема2", "ДЗ2", priticskogo, employee1);
+            Lesson lesson3 = lessonSave(session, Instant.now(), "тема3", "ДЗ3", priticskogo, employee2);
 
-                Mark markSaha = markSave(session, 2, 400, lesson1, studentSaha);
-                Mark markMatvey = markSave(session, 4, 600, lesson3, studentMatvey);
-                Mark markSaha2 = markSave(session, 3, 500, lesson3, studentSaha);
+            Mark markSaha = markSave(session, 2, 400, lesson1, studentSaha);
+            Mark markMatvey = markSave(session, 4, 600, lesson3, studentMatvey);
+            Mark markSaha2 = markSave(session, 3, 500, lesson3, studentSaha);
 //
-                employee1.getOffices().add(priticskogo);
-                employee1.getOffices().add(mogilevskaya);
-                mogilevskaya.getEmployees().add(employee3);
-                mogilevskaya.getEmployees().add(employee2);
+            employee1.getOffices().add(priticskogo);
+            employee1.getOffices().add(mogilevskaya);
+            mogilevskaya.getEmployees().add(employee3);
+            mogilevskaya.getEmployees().add(employee2);
 
-                groupa1.getFaculties().add(jun);
-                groupa1.getFaculties().add(kids);
-                groupa1.getFaculties().add(teen);
-                teen.getGroupas().add(groupa6);
-                teen.getGroupas().add(groupa7);
+            groupa1.getFaculties().add(jun);
+            groupa1.getFaculties().add(kids);
+            groupa1.getFaculties().add(teen);
+            teen.getGroupas().add(groupa6);
+            teen.getGroupas().add(groupa7);
 
-                pythonT.getFaculties().add(teen);
-                netJ.getFaculties().add(jun);
-                jun.getSubjects().add(pc);
-                kids.getSubjects().add(wedo);
+            pythonT.getFaculties().add(teen);
+            netJ.getFaculties().add(jun);
+            jun.getSubjects().add(pc);
+            kids.getSubjects().add(wedo);
 
-                session.getTransaction().commit();
-            }
+            session.getTransaction().commit();
         }
     }
 }
+//}
