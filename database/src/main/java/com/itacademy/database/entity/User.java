@@ -8,16 +8,13 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
 
 @Data
 @NoArgsConstructor
@@ -25,9 +22,8 @@ import java.util.Set;
 @Builder
 @EqualsAndHashCode(of = "id")
 @ToString(exclude = {"employees", "student", "employee"})
-
 @Entity
-@Table(name = "user", schema = "jurnalproject_schema")
+@Table(name = "user", schema = "jurnalproject_storage")
 public class User extends BaseEntity<Long> {
 
     @Column(name = "login")
@@ -40,12 +36,9 @@ public class User extends BaseEntity<Long> {
     @JoinColumn(name = "role_id")
     private Role role;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Employee employee;
 
-    @OneToOne(mappedBy = "user")
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Student student;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
-    private Set<Employee> employees = new HashSet<>();
 }

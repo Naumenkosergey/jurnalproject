@@ -11,6 +11,7 @@ import java.io.Serializable;
 import static org.junit.Assert.assertNotNull;
 
 public class OfficeTest {
+
     private static final SessionFactory FACTORY = new Configuration().configure().buildSessionFactory();
 
     @Test

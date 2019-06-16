@@ -148,11 +148,12 @@ public class FillingDB {
     }
 
 //    public static void main(String[] args) {
-//        importDdataForTest();
+//        FillingDB fillingDB = new FillingDB();
+//        @Cleanup SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+//        fillingDB.importDdataForTest(sessionFactory);
 //    }
 
     public void importDdataForTest(SessionFactory sessionFactory) {
-//        try (SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory()) {
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
 
@@ -225,7 +226,7 @@ public class FillingDB {
             Mark markSaha = markSave(session, 2, 400, lesson1, studentSaha);
             Mark markMatvey = markSave(session, 4, 600, lesson3, studentMatvey);
             Mark markSaha2 = markSave(session, 3, 500, lesson3, studentSaha);
-//
+
             employee1.getOffices().add(priticskogo);
             employee1.getOffices().add(mogilevskaya);
             mogilevskaya.getEmployees().add(employee3);
@@ -246,4 +247,3 @@ public class FillingDB {
         }
     }
 }
-//}

@@ -11,9 +11,11 @@ import java.io.Serializable;
 import static org.junit.Assert.assertNotNull;
 
 public class GroupaTest {
+
     private static SessionFactory FACTORY = new Configuration().configure().buildSessionFactory();
+
     @Test
-    public void checkSaveEntityGroupa(){
+    public void checkSaveEntityGroupa() {
         @Cleanup
         Session session = FACTORY.openSession();
         Groupa groupa = new Groupa().builder().number(5).semestr(2).build();
@@ -22,12 +24,12 @@ public class GroupaTest {
     }
 
     @Test
-    public void checkGetEntityGroupa(){
+    public void checkGetEntityGroupa() {
         @Cleanup
         Session session = FACTORY.openSession();
         Serializable id = session.save(new Groupa().builder().number(4).semestr(1).build());
         assertNotNull(id);
-        Groupa groupa = session.get(Groupa.class,id);
+        Groupa groupa = session.get(Groupa.class, id);
         assertNotNull(groupa);
 
     }

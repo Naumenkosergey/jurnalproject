@@ -23,7 +23,7 @@ import java.util.Set;
 @ToString(exclude = {"groupas, flow"})
 
 @Entity
-@Table(name = "flow", schema = "jurnalproject_schema")
+@Table(name = "flow", schema = "jurnalproject_storage")
 public class Flow extends BaseEntity<Long> {
 
     @JoinColumn(name = "name")

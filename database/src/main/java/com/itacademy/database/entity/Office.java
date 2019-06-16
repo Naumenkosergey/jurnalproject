@@ -27,23 +27,19 @@ import java.util.List;
 @ToString(exclude = {"lessons,employees"})
 
 @Entity
-@Table(name = "office", schema = "jurnalproject_schema")
+@Table(name = "office", schema = "jurnalproject_storage")
 public class Office extends BaseEntity<Long> {
 
     @Column(name = "name")
     private String name;
-    //    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
-//    private Set<Faculty> faculties = new HashSet<>();
     @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
     private List<Lesson> lessons = new ArrayList<>();
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "office_employee", schema = "jurnalproject_schema",
+    @JoinTable(name = "office_employee", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "office_id"),
             inverseJoinColumns = @JoinColumn(name = "employee_id")
     )
     private List<Employee> employees = new ArrayList<>();
-//    @OneToMany(mappedBy = "office", fetch = FetchType.EAGER)
-//    private Set<Subject> subjects = new HashSet<>();
 }

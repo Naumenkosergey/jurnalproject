@@ -20,7 +20,7 @@ import javax.persistence.Table;
 @ToString(exclude = "student")
 
 @Entity
-@Table(name = "status", schema = "jurnalproject_schema")
+@Table(name = "status", schema = "jurnalproject_storage")
 public class Status extends BaseEntity<Long> {
 
     @Column(name = "name")

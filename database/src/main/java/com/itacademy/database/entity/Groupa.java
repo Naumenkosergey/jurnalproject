@@ -28,7 +28,7 @@ import java.util.List;
 @ToString(exclude = {"flow, students, faculties"})
 
 @Entity
-@Table(name = "groupa", schema = "jurnalproject_schema")
+@Table(name = "groupa", schema = "jurnalproject_storage")
 public class Groupa extends BaseEntity<Long> {
 
     @Column(name = "number")
@@ -46,7 +46,7 @@ public class Groupa extends BaseEntity<Long> {
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "faculty_groupa", schema = "jurnalproject_schema",
+    @JoinTable(name = "faculty_groupa", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "groupa_id"),
             inverseJoinColumns = @JoinColumn(name = "faculty_id")
     )

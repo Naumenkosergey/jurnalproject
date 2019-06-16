@@ -1,6 +1,7 @@
 package com.itacademy.database.dao;
 
 import com.itacademy.database.entity.Groupa;
+import org.hibernate.SessionFactory;
 
 public class GroupDao implements BaseDao<Long, Groupa> {
 
@@ -8,5 +9,10 @@ public class GroupDao implements BaseDao<Long, Groupa> {
 
     public static GroupDao getInstance() {
         return INSTANCE;
+    }
+
+    @Override
+    public SessionFactory getSessionFactory() {
+        return null;
     }
 }

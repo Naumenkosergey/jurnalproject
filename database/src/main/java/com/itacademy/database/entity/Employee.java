@@ -27,7 +27,7 @@ import java.util.List;
 @EqualsAndHashCode(of = "id")
 @ToString(exclude = {"user,lessons, offices"})
 @Entity
-@Table(name = "employee", schema = "jurnalproject_schema")
+@Table(name = "employee", schema = "jurnalproject_storage")
 public class Employee extends BaseEntity<Long> {
 
     @Column(name = "name")
@@ -38,7 +38,6 @@ public class Employee extends BaseEntity<Long> {
 
     @OneToOne
     @JoinColumn(name = "user_id", unique = true)
-    //@PrimaryKeyJoinColumn
     private User user;
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.EAGER)
@@ -46,7 +45,7 @@ public class Employee extends BaseEntity<Long> {
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "office_employee", schema = "jurnalproject_schema",
+    @JoinTable(name = "office_employee", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "employee_id"),
             inverseJoinColumns = @JoinColumn(name = "office_id")
     )

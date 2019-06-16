@@ -26,7 +26,7 @@ import java.util.List;
 @ToString(exclude = {"flow", "faculty", "faculties"})
 
 @Entity
-@Table(name = "subject", schema = "jurnalproject_schema")
+@Table(name = "subject", schema = "jurnalproject_storage")
 public class Subject extends BaseEntity<Long> {
 
     @Column(name = "name")
@@ -45,7 +45,7 @@ public class Subject extends BaseEntity<Long> {
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "subject_faculty", schema = "jurnalproject_schema",
+    @JoinTable(name = "subject_faculty", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "subject_id"),
             inverseJoinColumns = @JoinColumn(name = "faculty_id")
     )

@@ -25,17 +25,15 @@ import java.util.List;
 @ToString(exclude = {"subjects, groupas"})
 
 @Entity
-@Table(name = "faculty", schema = "jurnalproject_schema")
+@Table(name = "faculty", schema = "jurnalproject_storage")
 public class Faculty extends BaseEntity<Long> {
 
     @Column(name = "name")
     private String name;
-    //    @ManyToOne
-//    @JoinColumn(name = "office_id")
-//    private Office office;
+
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "subject_faculty", schema = "jurnalproject_schema",
+    @JoinTable(name = "subject_faculty", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "faculty_id"),
             inverseJoinColumns = @JoinColumn(name = "subject_id")
     )
@@ -43,7 +41,7 @@ public class Faculty extends BaseEntity<Long> {
 
     @Builder.Default
     @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "faculty_groupa", schema = "jurnalproject_schema",
+    @JoinTable(name = "faculty_groupa", schema = "jurnalproject_storage",
             joinColumns = @JoinColumn(name = "faculty_id"),
             inverseJoinColumns = @JoinColumn(name = "groupa_id")
     )

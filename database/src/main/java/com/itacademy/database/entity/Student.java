@@ -9,7 +9,6 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -26,7 +25,7 @@ import java.util.List;
 @ToString(exclude = {"user", "groupa", "status", "marks"})
 
 @Entity
-@Table(name = "student", schema = "jurnalproject_schema")
+@Table(name = "student", schema = "jurnalproject_storage")
 public class Student extends BaseEntity<Long> {
 
     @Column(name = "sername")
@@ -50,6 +49,6 @@ public class Student extends BaseEntity<Long> {
     @JoinColumn(name = "status_id")
     private Status status;
 
-    @OneToMany(mappedBy = "student", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student")
     private List<Mark> marks = new ArrayList<>();
 }

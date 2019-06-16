@@ -11,9 +11,11 @@ import java.io.Serializable;
 import static org.junit.Assert.assertNotNull;
 
 public class FlowTest {
+
     private static SessionFactory FACTORY = new Configuration().configure().buildSessionFactory();
+
     @Test
-    public void  checkSaveEntityFlow(){
+    public void checkSaveEntityFlow() {
         @Cleanup
         Session session = FACTORY.openSession();
         Flow flow = new Flow().builder()
@@ -24,12 +26,12 @@ public class FlowTest {
     }
 
     @Test
-    public void checkGetEntityFlw(){
+    public void checkGetEntityFlw() {
         @Cleanup
         Session session = FACTORY.openSession();
         Serializable id = session.save(new Flow().builder().name("18/1").build());
         assertNotNull(id);
-        Flow flow = session.get(Flow.class,id);
+        Flow flow = session.get(Flow.class, id);
         assertNotNull(flow);
 
     }

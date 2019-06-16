@@ -23,7 +23,7 @@ import java.time.Instant;
 @ToString(exclude = {"mark", "office", "employee"})
 
 @Entity
-@Table(name = "lesson", schema = "jurnalproject_schema")
+@Table(name = "lesson", schema = "jurnalproject_storage")
 public class Lesson extends BaseEntity<Long> {
 
     @Column(name = "data")
