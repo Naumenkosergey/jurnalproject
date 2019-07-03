@@ -14,7 +14,7 @@ public class EmployeeTest {
     private static final SessionFactory FACTORY = new Configuration().configure().buildSessionFactory();
 
     @Test
-    public void checkSaveEntityEmployee(){
+    public void checkSaveEntityEmployee() {
         @Cleanup
         Session session = FACTORY.openSession();
         Employee employee = new Employee().builder()
@@ -26,7 +26,7 @@ public class EmployeeTest {
     }
 
     @Test
-    public void checGetEntityEmployee(){
+    public void checGetEntityEmployee() {
         @Cleanup
         Session session = FACTORY.openSession();
         Serializable id = session.save(new Employee().builder()
@@ -34,7 +34,7 @@ public class EmployeeTest {
                 .surname("козлов")
                 .build());
         assertNotNull(id);
-        Employee employee = session.get(Employee.class,id);
+        Employee employee = session.get(Employee.class, id);
         System.out.println(employee);
         assertNotNull(employee);
     }

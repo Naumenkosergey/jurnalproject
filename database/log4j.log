@@ -1,0 +1,6 @@
+2019-07-02 02:27:46,312 INFO  - HHH000204: Processing PersistenceUnitInfo [name: default]
+2019-07-02 02:27:46,592 INFO  - HHH000412: Hibernate Core {5.4.2.Final}
+2019-07-02 02:27:46,608 INFO  - HHH000205: Loaded properties from resource hibernate.properties: {hibernate.dialect=org.hibernate.dialect.PostgreSQL95Dialect, hibernate.show_sql=true, hibernate.bytecode.use_reflection_optimizer=false, hibernate.format_sql=true, hibernate.hb2ddl.auto=create}
+2019-07-02 02:27:47,038 INFO  - HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2019-07-02 02:27:48,718 INFO  - HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL95Dialect
+2019-07-02 02:27:54,810 INFO  - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]

@@ -24,6 +24,7 @@ public class FacultyTest {
         Serializable id = session.save(faculty);
         assertNotNull(id);
     }
+
     @Test
     public void checkGetEntityFaculty() {
         @Cleanup

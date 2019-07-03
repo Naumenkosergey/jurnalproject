@@ -1,0 +1,164 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>страница</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+	<table>
+		<tr>
+			<td colspan="2">Группа J5-F17/2 + время занятий</td>
+			<td th:each="number : 10" >
+				<input class="number" type="text" name="number" value="1">
+			</td>
+
+			<!--<td>-->
+				<!--<input class="number" type="text" name="number" value="2">-->
+			<!--</td>-->
+
+			<!--<td>-->
+				<!--<input class="number" type="text" name="number" value="3">-->
+			<!--</td>-->
+
+			<!--<td>-->
+				<!--<input class="number" type="text" name="number" value="4">-->
+			<!--</td>-->
+
+			<!--<td>-->
+				<!--<input class="number" type="text" name="number" value="5">-->
+			<!--</td>-->
+
+			<!--<td>-->
+				<!--<input class="number" type="text" name="number" value="6">-->
+			<!--</td>-->
+
+			<td class="subject" colspan="4">Предмет</td>
+		</tr>
+		<tr>
+			<td colspan="2">Семестр №</td>
+			<td colspan="6">Дата проведения занятий</td>
+		</tr>
+		<tr>
+			<td>№</td>
+			<td class="fio">Фамилия Имя</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td>
+				<input class="data" type="text" name="data">
+			</td>
+			<td class="data1">Дата</td>
+			<td class="tupic">Тема занятия</td>
+			<td class = "colhours">Всего часов</td>
+			<td class = "teacher">ФИО Преподавателя</td>
+
+		</tr>
+		<tr>
+			<td>
+				1
+			</td>
+			<td>
+				Студент1
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+
+			<td>
+				<input id="data1" type="text" name="text">
+			</td>
+
+			<td class="tupic">
+				Тема зянятия 1
+			</td>
+			<td>
+				<input id="colhours" type="text" name="colhours">
+			</td>
+
+			<td>
+				<input id="teacher" type="text" name="teacher">
+			</td>
+			
+		</tr>
+
+		<tr>
+			<td>
+				2
+			</td>
+			<td>
+				Студент2
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+			<td>
+				<input class="mark" type="text" name="text">
+			</td>
+
+			<td>
+				<input id="data1" type="text" name="text">
+			</td>
+
+			<td class="tupic">
+				Тема зянятия 2
+			</td>
+			<td>
+				<input id="colhours" type="text" name="colhours">
+			</td>
+
+			<td>
+				<input id="teacher" type="text" name="teacher">
+			</td>
+			
+		</tr>
+	</table>
+
+	<div>
+		<input type="text" name="text">
+	</div>
+	<div>
+		<input type="text" name="text">
+	</div>
+	
+
+
+</body>
+</html>

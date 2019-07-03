@@ -1,0 +1,35 @@
+.helper{
+	position:fixed;
+	width: 700px;
+	height: auto;
+	margin: 20px 0px 0px 25%;
+	background: #FFE4E1;
+	border: solid red 1px;
+}	
+
+.toCenter{
+	position:fixed;
+	width: 500px;
+	height: auto;
+	margin: 350px 0px 0px 37%;
+}
+.FormLogin{
+	padding: 0px 0px 0px 0px; 
+}
+.textAndButton{
+	padding: 0px 0px 0px 50px; 
+}
+
+.info{
+	position:fixed;
+	width: 700px;
+	height: auto;
+	margin: 270px 0px 0px 25%;
+}
+.FormSignUp{
+	position:fixed;
+	width: 500px;
+	height: auto;
+	margin: 100px 0px 0px 37%;
+}
+

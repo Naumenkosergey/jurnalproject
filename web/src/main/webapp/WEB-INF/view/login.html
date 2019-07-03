@@ -1,0 +1,86 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link th:href="@{/css/styleform.css}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<div class="helper">
+    <p><b>Не удаётся войти.</b></p>
+    <p>Пожалуйста, проверьте правильность написания логина и пароля.</p>
+    <ul>
+        <li>Возможно, нажата клавиша Caps Lock?</li>
+        <li>Может быть, у Вас включена неправильная раскладка? (русская или английская)</li>
+        <li>Попробуйте набрать свой пароль в текстовом редакторе и скопировать в графу «Пароль»</li>
+        <li>Если пароль набран верно, попробуйте указать в качестве логина номер привязанного телефона, а не
+            почту.
+        </li>
+    </ul>
+</div>
+
+<div class="info" th:if="${error}">
+    <div class="alert alert-danger" role="alert">
+        <!--A simple danger alert—check it out!-->
+        Ошибка авторизации. Возможно неверныое имя пользователя или пароль
+    </div>
+</div>
+
+<div class="info" th:if="${logout}">
+    <div class="alert alert-primary" role="alert">
+        <!--A simple primary alert—check it out!-->
+        Вы успешно вышли из своего аккаунта
+    </div>
+</div>
+
+<div class="toCenter">
+    <div th:if="${logout}">
+        <div class="alert alert-primary" role="alert">
+            <!--A simple primary alert—check it out!-->
+            Вы успешно вышли из своего аккаунта
+        </div>
+    </div>
+
+    <div class="FormLogin">
+        <!-- <form class="form-horizontal"action ="do?command=login" method="POST"> -->
+        <form method="post" action="/login" class="form-horizontal">
+            <fieldset>
+
+                <!-- Form Name -->
+                <div class="textAndButton">
+                    <legend>Авторизация</legend>
+                </div>
+                <!-- Text input-->
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <input type="text" class="form-control input-md" name="username" id="username" value=""
+                               placeholder="Имя пользователя">
+                    </div>
+                </div>
+
+                <!-- Password input-->
+                <div class="form-group">
+                    <div class="col-md-6">
+
+                        <input type="password" class="form-control input-md" name="password" id="pass" value=""
+                               placeholder="Пароль">
+                    </div>
+                </div>
+
+                <!-- Button -->
+
+                <div class="textAndButton">
+                    <button type="submit" id="login_button" class="btn btn-primary">Войти</button>
+                    <button id="login_reg_button" class="btn btn-success" href="/signup">Регистрация</button>
+                </div>
+                <input th:name="${_csrf.parameterName}" type="hidden" th:value="${_csrf.token}"/>
+            </fieldset>
+        </form>
+
+        <a href="/signup">Регистрация нового</a>
+    </div>
+
+</div>
+</body>
+
+</html>
