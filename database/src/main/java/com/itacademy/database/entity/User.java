@@ -41,4 +41,10 @@ public class User extends BaseEntity<Long> {
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Student student;
+
+    public User(String login, String password, Role role) {
+        this.login = login;
+        this.password = password;
+        this.role = role;
+    }
 }

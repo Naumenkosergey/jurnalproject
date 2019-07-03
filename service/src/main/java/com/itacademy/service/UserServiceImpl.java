@@ -1,7 +1,7 @@
 package com.itacademy.service;
 
-import com.itacademy.database.dao.UserDao;
 import com.itacademy.database.entity.User;
+import com.itacademy.database.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,19 +10,30 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Service
-@Transactional(readOnly = true)
+@Transactional
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
-public class UserService /*implements IService<User> */{
+public class UserServiceImpl /*implements IService<User> */{
 
-    private final UserDao userDao;
 
-    public Optional<User> find(Long id){
-        return userDao.get(id);
+    private final UserRepository userRepository;
+
+    public Optional<User> findById(Long id){
+        return userRepository.findById(id);
     }
 
-    public Long save(User user){
-        return userDao.save(user);
+    public Optional<User> getUserByLogin(String login){
+        return userRepository.findByLogin(login);
     }
+
+    public Iterable<User> getAllUser(){
+        return  userRepository.findAll();
+    }
+
+
+
+//    public Long save(User user){
+//        return userDao.save(user);
+//    }
 
 //    private static SessionFactory FACTORY = HibernateSessionFactoryUtil.getSessionFactory();
 //

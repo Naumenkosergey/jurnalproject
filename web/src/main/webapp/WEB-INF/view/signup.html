@@ -1,0 +1,43 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styleform.css}">
+</head>
+<body>
+<div class="FormSignUp">
+
+    <form method="post" action="/signup" class="form-horizontal">
+        <input th:name="${_csrf.parameterName}" type="hidden" th:value="${_csrf.token}"/>
+        <!-- Form Name -->
+        <div class="textAndButton">
+            <legend>Регистрация</legend>
+        </div>
+        <!-- Text input-->
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" class="form-control input-md" name="email" id="login" value=""
+                       placeholder="Логин">
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <div class="col-md-6">
+
+                <input type="password" class="form-control input-md" name="password" id="password" value=""
+                       placeholder="Пароль">
+            </div>
+        </div>
+
+        <!-- Button -->
+
+        <div class="textAndButton">
+            <button id="login_button" class="btn btn-success">Зарегистрировать</button>
+        </div>
+    </form>
+</div>
+
+</body>
+
+</html>

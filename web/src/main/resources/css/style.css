@@ -1,0 +1,89 @@
+.mark{
+   width:20px;
+   border: 0px;
+   font-size: 20px;
+   color: blue;
+}
+.data{
+   width:20px;
+   border: 0px;
+   font-size: 20px;
+   color: blue;
+}
+.number{
+	width:20px;
+	border: 0px;
+	font-size: 20px;
+	color: blue;
+}
+td{
+	border: solid 4px green;
+}
+table {
+	border-collapse:collapse;
+}
+
+.data1{
+   width:80px;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+}
+#data1{
+   width:80px;
+   font-size: 15px;
+   color: black;
+   text-align: center;
+   border: 0px;
+
+}
+.tupic{
+   width:500px;
+   height: 10px;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+
+}
+.colhours{
+   width:40px;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+}
+
+#colhours{
+   width:40px;
+   font-size: 15px;
+   color: black;
+   text-align: center;
+   border: 0px;
+
+}
+.teacher{
+   width:120px;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+}
+#teacher{
+   width:120px;
+   font-size: 15px;
+   color: black;
+   text-align: center;
+   border: 0px;
+}
+.fio{
+   width:300px;
+   height: 10px;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+}
+.subject{
+   column-span: 4;
+   font-size: 20px;
+   color: blue;
+   text-align: center;
+
+}

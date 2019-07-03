@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>HTML</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+
+<p>Страница userhtml</p>
+<div class="container">
+    <table border="2" cellpadding="0">
+        <tr>
+            <td width="80">id</td>
+            <td width="120">логин</td>
+            <td width="120">Пароль</td>
+            <td width="120">роль</td>
+        </tr>
+        <tr>
+            <td th:text="${userhtml.id}">id</td>
+            <td th:text="${userhtml.login}">login</td>
+            <td th:text="${userhtml.password}">password</td>
+            <td th:text="${userhtml.role}">role</td>
+            <td>edit</td>
+            <td>delete</td>
+        </tr>
+    </table>
+</div>
+
+<div class="container">
+    <h1>Add User</h1>
+
+    <form>
+        <div class="form-group">
+            <div class="col-md-6">
+                <input type="text" class="form-control input-md" name="email" id="login" value=""
+                       placeholder="Логин">
+            </div>
+        </div>
+
+        <!-- Password input-->
+        <div class="form-group">
+            <div class="col-md-6">
+
+                <input type="password" class="form-control input-md" name="password" id="password" value=""
+                       placeholder="Пароль">
+            </div>
+        </div>
+
+        <!-- role input-->
+        <div class="form-group">
+            <div class="col-md-6">
+
+                <input type="" class="form-control input-md" name="role" id="role" value=""
+                       placeholder="Роль">
+            </div>
+        </div>
+
+        <!-- Button -->
+
+        <div class="textAndButton">
+            <button id="login_button" class="btn btn-success">добавить</button>
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

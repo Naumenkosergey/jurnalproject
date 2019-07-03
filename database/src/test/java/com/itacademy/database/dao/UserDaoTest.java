@@ -1,5 +1,6 @@
 package com.itacademy.database.dao;
 
+import com.itacademy.database.config.DataBaseConfig;
 import com.itacademy.database.entity.Role;
 import com.itacademy.database.entity.User;
 import org.junit.Test;
@@ -12,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration("classpath:application-context.xml")
+@ContextConfiguration(classes = DataBaseConfig.class)
 @Transactional
 public class UserDaoTest {
 
@@ -39,6 +40,4 @@ public class UserDaoTest {
         userDao.save(user);
         assertNotNull(user);
     }
-
-//
 }
